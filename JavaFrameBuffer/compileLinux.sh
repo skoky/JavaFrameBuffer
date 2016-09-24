@@ -2,8 +2,8 @@
 
 jniResult=libFrameBufferJNI.so
 
-jniJdkHeader=/opt/jdk1.7.0_45/include
-jniSysHeader=/opt/jdk1.7.0_45/include/linux
+jniJdkHeader=/usr/lib/jvm/jdk-8-oracle-arm-vfp-hflt/include
+jniSysHeader=/usr/lib/jvm/jdk-8-oracle-arm-vfp-hflt/include/linux
 
 rm "$jniResult" 2>/dev/null
 
@@ -18,5 +18,8 @@ gcc -Wall -O2 -o "$jniResult" -shared -I "$jniJdkHeader"  -I "$jniSysHeader" -I 
 
 echo
 ls -l "$jniResult"
+
+javac -classpath src/main/java src/main/java/org/tw/pi/framebuffer/*.java
+
 echo "done"
 
